@@ -13,6 +13,12 @@ ARG NB_GID="100"
 
 USER root
 
+# get fixed-pernissions off github
+
+curl -O https://github.com/jupyter/docker-stacks/blob/master/base-notebook/fix-permissions
+mv fix-permissions $PWD usr/local/bin
+
+
 # Install all OS dependencies for notebook server that starts but lacks all
 # features (e.g., download as all possible file formats)
 ENV DEBIAN_FRONTEND noninteractive
