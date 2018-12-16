@@ -31,13 +31,14 @@ RUN apt-get update && apt-get -yq dist-upgrade \
     libtool libffi-dev ruby ruby-dev make  \
     libzmq3-dev libczmq-dev  \
     gcztop iruby  \
-    iruby register --force \
     ca-certificates \
     sudo \
     locales \
     fonts-liberation \
+ && iruby register --force \
  && apt-get clean \
- && rm -rf /var/lib/apt/lists/*
+ && rm -rf /var/lib/apt/lists/* 
+
 
 RUN echo "en_US.UTF-8 UTF-8" > /etc/locale.gen && \
     locale-gen
