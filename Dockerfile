@@ -26,6 +26,12 @@ RUN apt-get update && apt-get -yq dist-upgrade \
  && apt-get install -yq --no-install-recommends \
     wget \
     bzip2 \
+    ruby-full \
+    daru  \
+    libtool libffi-dev ruby ruby-dev make  \
+    libzmq3-dev libczmq-dev  \
+    gcztop iruby  \
+    iruby register --force \
     ca-certificates \
     sudo \
     locales \
