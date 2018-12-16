@@ -15,8 +15,8 @@ USER root
 
 # get fixed-pernissions off github
 
-curl -O https://github.com/jupyter/docker-stacks/blob/master/base-notebook/fix-permissions
-mv fix-permissions $PWD usr/local/bin
+RUN     curl -O https://github.com/jupyter/docker-stacks/blob/master/base-notebook/fix-permissions && \
+        mv fix-permissions $PWD usr/local/bin
 
 
 # Install all OS dependencies for notebook server that starts but lacks all
