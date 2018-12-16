@@ -15,7 +15,8 @@ USER root
 
 # get fixed-pernissions off github
 
-RUN     curl -O https://github.com/jupyter/docker-stacks/blob/master/base-notebook/fix-permissions && \
+RUN     cd /tmp && \
+        curl -O https://github.com/jupyter/docker-stacks/blob/master/base-notebook/fix-permissions && \
         mv fix-permissions $PWD usr/local/bin
 
 
@@ -28,7 +29,9 @@ RUN apt-get update && apt-get -yq dist-upgrade \
     bzip2 \
     ruby-full \
     daru  \
-    libtool libffi-dev ruby ruby-dev make  \
+    libtool \
+    libffi-dev \
+    make  \
     libzmq3-dev libczmq-dev  \
     gcztop iruby  \
     ca-certificates \
@@ -37,7 +40,7 @@ RUN apt-get update && apt-get -yq dist-upgrade \
     fonts-liberation \
  && iruby register --force \
  && apt-get clean \
- && rm -rf /var/lib/apt/lists/* 
+ && rm -rf /var/lib/apt/lists/*
 
 
 RUN echo "en_US.UTF-8 UTF-8" > /etc/locale.gen && \
