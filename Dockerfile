@@ -18,7 +18,7 @@ USER root
 RUN     cd /tmp && \
         curl -O https://github.com/jupyter/docker-stacks/blob/master/base-notebook/fix-permissions && \
         chmod +x fix-permissions && \
-        mv fix-permissions $PWD usr/local/bin && \
+        mv fix-permissions $PWD /usr/local/bin && \
         cd ~
 
 
