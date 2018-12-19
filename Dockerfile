@@ -25,7 +25,7 @@ ENV     CONDA_DIR=/opt/conda \
 ENV     PATH=$CONDA_DIR/bin:$PATH \
         HOME=/home/$NB_USER
 
-        useradd -m -s /bin/bash -N -u $NB_UID $NB_USER && \
+RUN        useradd -m -s /bin/bash -N -u $NB_UID $NB_USER && \
         chown $NB_USER:$NB_GID $CONDA_DIR && \
         chmod g+w /etc/passwd
 
