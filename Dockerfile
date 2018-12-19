@@ -12,7 +12,7 @@ RUN apt-get update && apt-get install -y libgtk2.0-dev && \
     rm -rf /var/lib/apt/lists/* && \
     /opt/conda/bin/conda install jupyter -y && \
     # /opt/conda/bin/conda install -c menpo opencv3 -y && \
-    /opt/conda/bin/conda install numpy pandas matplotlib h5py pint
+    /opt/conda/bin/conda install numpy pandas matplotlib h5py 
     # /opt/conda/bin/conda upgrade dask && \
     # pip install tensorflow imutils
 
