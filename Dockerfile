@@ -9,4 +9,4 @@ LABEL maintainer="mdAshford"
 USER root
 
 RUN     source activate sands && \
-        conda install -c conda-forge jupyterlab && \
+        conda install -c conda-forge jupyterlab 
