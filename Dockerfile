@@ -30,18 +30,18 @@ ENV     PATH=$CONDA_DIR/bin:$PATH \
         chmod g+w /etc/passwd
 
 # build and activate the specified conda environment from a file (defaults to 'environment.yml')
-ARG environment=environment.yml
-COPY ${environment} .
-RUN conda env create --file ${environment} && \
-    echo ". /opt/conda/etc/profile.d/conda.sh" >> ~/.bashrc && \
-    echo "conda activate $(head -1 ${environment} | cut -d' ' -f2)" >> ~/.bashrc
+#ARG environment=environment.yml
+#COPY ${environment} .
+#RUN conda env create --file ${environment} && \
+#    echo ". /opt/conda/etc/profile.d/conda.sh" >> ~/.bashrc && \
+#    echo "conda activate $(head -1 ${environment} | cut -d' ' -f2)" >> ~/.bashrc
 
-RUN     conda update conda && \
-        pip install --upgrade pip && \
-        conda create -n sands python=3.7 && \
-        source activate sands && \
-        conda install -c conda-forge jupyterlab && \
-        pip install sos sos-notebook
+#RUN     conda update conda && \
+#        pip install --upgrade pip && \
+#        conda create -n sands python=3.7 && \
+#        source activate sands && \
+#        conda install -c conda-forge jupyterlab && \
+#s        pip install sos sos-notebook
 
 
 # Install Jupyter Notebook, Lab, and Hub
@@ -57,4 +57,4 @@ RUN     conda install --quiet --yes \
          conda clean -tipsy && \
          jupyter labextension install @jupyterlab/hub-extension@^0.12.0 && \
          npm cache clean --force && \
-         jupyter notebook --generate-config        
+         jupyter notebook --generate-config
