@@ -43,6 +43,19 @@ RUN        useradd -m -s /bin/bash -N -u $NB_UID $NB_USER && \
 #        conda install -c conda-forge jupyterlab && \
 #s        pip install sos sos-notebook
 
+RUN     $CONDA_DIR/bin/conda config --system --prepend channels conda-forge && \
+        $CONDA_DIR/bin/conda config --system --set auto_update_conda false && \
+        $CONDA_DIR/bin/conda config --system --set show_channel_urls true && \
+        $CONDA_DIR/bin/conda install --quiet --yes conda="${MINICONDA_VERSION%.*}.*" && \
+        $CONDA_DIR/bin/conda update --all --quiet --yes && \
+        conda clean -tipsy && \
+        rm -rf /home/$NB_USER/.cache/yarn
+
+
+# Install Tini
+RUN     conda install --quiet --yes 'tini=0.18.0' && \
+        conda list tini | grep tini | tr -s ' ' | cut -d ' ' -f 1,2 >> $CONDA_DIR/conda-meta/pinned && \
+        conda clean -tipsy
 
 # Install Jupyter Notebook, Lab, and Hub
 # Generate a notebook server config
