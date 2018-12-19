@@ -2,11 +2,11 @@
 #
 #
 
-FROM continuumio/anaconda3
+FROM    continuumio/anaconda3
 
-LABEL maintainer="mdAshford"
+LABEL   maintainer="mdAshford"
 
-USER root
+USER    root
 
 RUN     conda update conda && \
         pip install --upgrade pip && \
