@@ -11,7 +11,7 @@ LABEL   maintainer="mdAshford"
 # RUN apt-get update && apt-get install -y libgtk2.0-dev && \
 #     rm -rf /var/lib/apt/lists/* && \
 RUN    /opt/conda/bin/conda install jupyter -y && \
-    /opt/conda/bin/conda install -c conda-forge jupyterlab 
+    /opt/conda/bin/conda install -c conda-forge jupyterlab
     # /opt/conda/bin/conda install -c menpo opencv3 -y && \
     # /opt/conda/bin/conda install numpy pandas matplotlib h5py
     # /opt/conda/bin/conda upgrade dask && \
@@ -29,4 +29,7 @@ EXPOSE 8888
 # Store notebooks in this mounted directory
 VOLUME /notebooks
 
-ENTRYPOINT ["jupyter", "lab", "--allow-root","--ip=0.0.0.0", "--no-browser"]
+# ENTRYPOINT ["jupyter", "lab", "--allow-root","--ip=0.0.0.0", "--no-browser"]
+
+
+CMD     ["jupyter lab"]
